@@ -3,11 +3,11 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
-#dynamic rnn layer
-def dynamic_rnn(cell, inputs, n_hidden, length, max_len, out_type='last'):
-    outputs, h_n = torch.nn.RNNCell(
-        
-    )
+#bidirectional LSTM
+class bidynamicRNN(torch.nn.Module):
+    def __init__(self):
+        super(bidynamicRNN, self).__init__()
+
 
 
 def WXbA_Relu(X, A, W, b):

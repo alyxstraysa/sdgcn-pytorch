@@ -3,3 +3,8 @@ Graph Convolutional Network Scripts/data_res/bert_embedding/Res_Train_target_Emb
 Graph Convolutional Network Scripts/data_res/bert_embedding/Res_Train_Embedding.npy
 Graph Convolutional Network Scripts/data_res/bert_embedding/Res_Test_target_Embedding.npy
 Graph Convolutional Network Scripts/data_res/bert_embedding/Res_Test_Embedding.npy
+*.npy
+Graph Convolutional Network Scripts/data_res/bert_embedding/Restaurants_Test.txt
+Graph Convolutional Network Scripts/data_res/bert_embedding/Restaurants_Train.txt
+Graph Convolutional Network Scripts/w2v
+Graph Convolutional Network Scripts/data_res/glove_embedding/glove.42B.300d.txt

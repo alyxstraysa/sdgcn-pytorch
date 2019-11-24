@@ -83,5 +83,4 @@ save_BERT_embedding(test_save_file,test_BERT_em)
 save_BERT_embedding(train_target_save_file,train_target_BERT_em)
 save_BERT_embedding(test_target_save_file,test_target_BERT_em)
 
-
 #why did they pick 768 for the dimension????

@@ -41,8 +41,11 @@ class GCN_Bert(nn.Module):
 
         ###Attention Layer###
 
-        ###GCN Layer###
 
+
+    def forward(self, inputs):
+                
+        #GCN Layer
         #GCN Layer 1
         GCN1_cross = WXbA_Relu(self.targets_concat,self.relate_cross,W_cross,b_cross)
         GCN1_self = WXbA_Relu(self.targets_concat,self.relate_self,W_self,b_self)
@@ -56,9 +59,6 @@ class GCN_Bert(nn.Module):
         target_which = torch.unsqueeze(self.target_which, 1) # (?,1,13)
         self.GCN2_out = torch.mul(GCN2_out, target_which) #(?,600,13)*(?,1,13) = (?,600,13)
         self.targets_representation = torch.sum(self.GCN2_out, 2)  # (?,600)
-
-    def forward(self, inputs):
-        pass
 
 
 gcnbert = GCN_Bert().to_device('Cuda')
