@@ -8,8 +8,6 @@ class bidynamicRNN(torch.nn.Module):
     def __init__(self):
         super(bidynamicRNN, self).__init__()
 
-
-
 def WXbA_Relu(X, A, W, b):
     """
     :param W: (600,600)

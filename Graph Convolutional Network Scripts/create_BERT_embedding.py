@@ -1,3 +1,5 @@
+#this script actually creates the embeddings
+
 from bert_embedding import BertEmbedding
 import numpy as np
 import time
@@ -21,16 +23,16 @@ def load_data_and_labels(positive_data_file):
             target.append(i_target)
     x_text = input
     # Generate labels
-    lable=[]
+    label=[]
     for index,i in enumerate(examples):
         if index%3 == 2:
             if i[0:1]=='1':
-                lable.append([1,0,0])
+                label.append([1,0,0])
             if i[0:1]=='0':
-                lable.append([0,1,0])
+                label.append([0,1,0])
             if i[0:1]=='-':
-                lable.append([0,0,1])
-    y = np.array(lable)
+                label.append([0,0,1])
+    y = np.array(label)
     return [x_text,target, y]
 
 def create_bert_embedding(input,max_len):
@@ -54,8 +56,8 @@ def save_BERT_embedding(save_file,bert_embedding):
     print("Finish save BERT embedding in: ", save_file, "\n")
     print()
 
-train_file = "data_res/Restaurants_Train.txt"
-test_file = "data_res/Restaurants_Test.txt"
+train_file = "data_res/bert_embedding/Restaurants_Train.txt"
+test_file = "data_res/bert_embedding/Restaurants_Test.txt"
 train_save_file = "data_res/bert_embedding/Res_Train_Embedding.npy"
 test_save_file = "data_res/bert_embedding/Res_Test_Embedding.npy"
 train_target_save_file = "data_res/bert_embedding/Res_Train_target_Embedding.npy"
@@ -67,7 +69,8 @@ bert_embedding = BertEmbedding(model='bert_12_768_12', dataset_name='book_corpus
 print("loading data:")
 train_x_str, train_target_str, train_y = load_data_and_labels(train_file)
 test_x_str, test_target_str, test_y = load_data_and_labels(test_file)
-max_sentence_length = max([len(x.split(" ")) for x in (train_x_str + test_x_str)])
+#max_sentence_length = max([len(x.split(" ")) for x in (train_x_str + test_x_str)]) should be 80?
+max_sentence_length = 80
 max_target_length = max([len(x.split(" ")) for x in (train_target_str + test_target_str)])
 
 #create_bert_embedding

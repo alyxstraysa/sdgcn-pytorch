@@ -1,3 +1,5 @@
+#this script creates the target embeddings
+
 # -*- coding: utf-8 -*-
 '''
 # @Author  : plzhao
